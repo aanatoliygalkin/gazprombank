@@ -1,6 +1,23 @@
 'use strict';
 'esversion: 6';
 
+document.addEventListener('click', function (e) {
+        const a = e.target.closest('a[target="_blank"]');
+        if (a) {
+            e.preventDefault();
+            try {
+                const newWindow = window.open(a.href, '_blank');
+                if (!newWindow) {
+                    // window.open не сработал (заблокировано или в webview не поддерживается)
+                    window.location.href = a.href;
+                }
+            } catch (err) {
+                // Любая ошибка window.open — переходим напрямую
+                window.location.href = a.href;
+            }
+        }
+    });
+
 const app = function () {
     const js = () => {
         const html = document.documentElement;
