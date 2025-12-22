@@ -2372,6 +2372,8 @@ body {
   align-items: center;
   justify-content: center;
   line-height: 1;
+  background-color: white;
+    z-index: 999;
 }
 @media (max-width: 991.98px) {
   .promo__steps-item:before {
